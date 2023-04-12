@@ -1,6 +1,3 @@
-# importar Opentalk
-source $HOME/Dev/OpenTalk/FrontEnd/Information/alias.zsh
-
 # importar funciones
 source "$HOME/.zsh/funciones/ir aqui.sh"
 
