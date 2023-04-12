@@ -12,6 +12,5 @@ local create_source_whit () {
 create_source_whit common
 # create_source_whit commit
 create_source_whit push
-create_source_whit "mensajes motivacionales"
 
 alias python=/opt/homebrew/bin/python3
