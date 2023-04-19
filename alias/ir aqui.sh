@@ -11,6 +11,5 @@ local create_source_whit () {
 
 create_source_whit common
 # create_source_whit commit
-create_source_whit push
 
 alias python=/opt/homebrew/bin/python3
