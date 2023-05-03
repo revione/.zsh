@@ -78,4 +78,4 @@ alias script='pnpm script'
 
 # Prettier write all
 
-alias prettier-all='npx perrtier --write .'
+alias prettier-all='npx prettier --write .'

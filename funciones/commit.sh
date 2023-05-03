@@ -22,4 +22,6 @@ commit() {
 
 vamo () {
   commit 'vamo'
+  sleep 2
+  clear
 }

@@ -28,7 +28,7 @@ template () {
   revione
   git clone git@github.com:revdev-earth/template.git $1
   cd $1
-  pmpm i
+  pnpm i
   echo "Listo!"
   clear
 }
