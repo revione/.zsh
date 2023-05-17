@@ -13,3 +13,4 @@ create_source_whit common
 # create_source_whit commit
 
 alias python=/opt/homebrew/bin/python3
+# alias raiz=./raiz
