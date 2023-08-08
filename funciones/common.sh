@@ -47,3 +47,5 @@ p () {
   push
   clear
 }
+
+alias pushc="push && clear"
