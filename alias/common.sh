@@ -53,17 +53,12 @@ alias oneline='git log --oneline'
 alias stash='git stash'
 alias pop='git stash pop'
 
-# Yarn
-
-alias start='yarn start'
-alias fmt='yarn fmt'
-
-
 alias remote-add='git remote add'
 
 # pnpm
 
 alias dev='pnpm dev'
+alias start='pnpm start:dev'
 
 # code codium
 
