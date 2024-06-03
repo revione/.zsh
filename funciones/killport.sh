@@ -5,7 +5,8 @@
 function killport() {
     # Si el puerto no se proporciona como argumento, solicitar al usuario que ingrese el puerto
     if [ -z "$1" ]; then
-        read -p "Ingrese el número del puerto que desea matar: " PORT
+        echo "Ingrese el número del puerto que desea matar: " 
+        read -r PORT
     else
         PORT=$1
     fi

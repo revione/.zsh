@@ -12,5 +12,28 @@ local create_source_whit () {
 create_source_whit common
 # create_source_whit commit
 
-alias python=/opt/homebrew/bin/python3
 # alias raiz=./raiz
+
+
+# Python
+
+# Si hay un entorno virtual activo, utiliza sus versiones de python y pip
+if [ -n "$VIRTUAL_ENV" ]; then
+    # alias python="$VIRTUAL_ENV/bin/python3"
+    # alias pip="$VIRTUAL_ENV/bin/pip3"
+    alias python="$VIRTUAL_ENV/bin/python3.12"
+    alias pip="$VIRTUAL_ENV/bin/pip3.12"
+    alias p="python"
+else
+    # alias python=/usr/bin/python3
+    # alias pip=/usr/bin/pip3
+
+    alias python=/opt/homebrew/bin/python3.12
+    alias pip=/opt/homebrew/bin/pip3.12
+fi
+# ejecutable de python
+export PATH="/Users/rev/Library/Python/3.9/bin:$PATH"
+alias virtualenv=/Users/rev/Library/Python/3.9/bin/virtualenv
+alias create-venv="python -m venv venv"
+alias active-venv="source venv/bin/activate"
+

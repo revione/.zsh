@@ -15,8 +15,7 @@ unset __conda_setup
 
 
 # pnpm
-export PNPM_HOME="/Users/revi/Library/pnpm"
-export PATH="$PNPM_HOME:$PATH"
+export PATH="/Users/revi/Library/pnpm:$PATH"
 # pnpm end
 
 
@@ -49,5 +48,3 @@ zmodload -i zsh/complist
 export GPG_TTY=$(tty)
 
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
-
-export PATH="/opt/homebrew/bin/python3:$PATH"

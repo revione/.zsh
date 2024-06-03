@@ -37,7 +37,8 @@ function deletebranches() {
     else
         # Confirmar si el usuario desea continuar
         echo "Los siguientes branches se eliminarán: ${DELETE[@]}"
-        read -p "¿Desea continuar? (s/n) " ANSWER
+        echo "¿Desea continuar? (s/n) " 
+        read -r ANSWER
         if [ "$ANSWER" = "s" ]; then
             # Eliminar los branches
             for branch in "${DELETE[@]}"; do
