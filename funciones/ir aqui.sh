@@ -13,6 +13,7 @@ create_source_whit ffmpeg
 create_source_whit ffmpeg2
 create_source_whit transcriptions
 create_source_whit converter
+create_source_whit yt
 create_source_whit killport
 create_source_whit common
 create_source_whit commit
