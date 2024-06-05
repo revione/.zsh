@@ -60,10 +60,6 @@ alias remote-add='git remote add'
 alias dev='pnpm dev'
 alias start='pnpm start:dev'
 
-# code codium
-
-alias code='codium'
-
 # script para los package json 
 # "scripts" {
 #   "script": "chmod x+ script.sh && ./script.sh"

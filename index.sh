@@ -15,4 +15,4 @@ source "$HOME/.zsh/workspace.sh"
 # Como usar
 # source "$HOME/.zsh/index.sh"
 
- export PATH=$PATH:/Users/oliverramirez/.local/bin
+export PATH=$PATH:/Users/o.ramirezgarcia/.local/bin
