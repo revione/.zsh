@@ -31,20 +31,13 @@ else
     alias python=/opt/homebrew/bin/python3.12
     alias pip=/opt/homebrew/bin/pip3.12
 fi
+
 # ejecutable de python
 export PATH="/Users/rev/Library/Python/3.9/bin:$PATH"
 alias virtualenv=/Users/rev/Library/Python/3.9/bin/virtualenv
 alias create-venv="python -m venv venv"
 alias active-venv="source venv/bin/activate"
 
-# console ninja
-PATH=~/.console-ninja/.bin:$PATH
-
-# Homebrew
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
-# Add Visual Studio Code (code)
-# export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 alias vscode='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code'
 

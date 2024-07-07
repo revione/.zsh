@@ -15,4 +15,15 @@ source "$HOME/.zsh/workspace.sh"
 # Como usar
 # source "$HOME/.zsh/index.sh"
 
-export PATH=$PATH:/Users/o.ramirezgarcia/.local/bin
+# console ninja
+PATH=~/.console-ninja/.bin:$PATH
+
+# Homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Add Visual Studio Code (code)
+# export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
+# Created by `pipx` on 2024-02-20 11:03:33
+# export PATH=$PATH:/Users/o.ramirezgarcia/.local/bin
+export PATH="$PATH:/Users/rev/.local/bin"

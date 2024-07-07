@@ -1,14 +1,8 @@
 #!/bin/bash
 
 transcribe_video() {
-  # Verifica si se proporcionó un directorio
-  if [ -z "$1" ]; then
-    echo "Uso: $0 <directorio>"
-    exit 1
-  fi
-
-  # Directorio de entrada
-  INPUT_DIR="$1"
+  # Verifica si se proporcionó un directorio, si no, usa el directorio actual
+  INPUT_DIR="${1:-.}"
 
   # Buscar videos en el directorio y procesar cada archivo de video
   find "$INPUT_DIR" -maxdepth 1 -type f \( -iname "*.mp4" -o -iname "*.mkv" -o -iname "*.avi" -o -iname "*.mov" \) | while read -r VIDEO_FILE; do
@@ -37,14 +31,8 @@ transcribe_video() {
 
 
 transcribe_audio() {
-  # Verifica si se proporcionó un directorio
-  if [ -z "$1" ]; then
-    echo "Uso: $0 <directorio>"
-    exit 1
-  fi
-
-  # Directorio de entrada
-  INPUT_DIR="$1"
+  # Verifica si se proporcionó un directorio, si no, usa el directorio actual
+  INPUT_DIR="${1:-.}"
 
   # Buscar archivos de audio en el directorio y procesar cada archivo de audio
   find "$INPUT_DIR" -maxdepth 1 -type f \( -iname "*.wav" -o -iname "*.mp3" -o -iname "*.flac" -o -iname "*.aac" -o -iname "*.m4a" \) | while read -r AUDIO_FILE; do
