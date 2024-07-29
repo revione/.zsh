@@ -5,7 +5,7 @@ transcribe_video() {
   INPUT_DIR="${1:-.}"
 
   # Buscar videos en el directorio y procesar cada archivo de video
-  find "$INPUT_DIR" -maxdepth 1 -type f \( -iname "*.mp4" -o -iname "*.mkv" -o -iname "*.avi" -o -iname "*.mov" \) | while read -r VIDEO_FILE; do
+  find "$INPUT_DIR" -maxdepth 1 -type f \( -iname "*.mp4" -o -iname "*.mkv" -o -iname "*.avi" -o -iname "*.mov"  -o -iname "*.wav" \) | while read -r VIDEO_FILE; do
     VIDEO_NAME=$(basename "$VIDEO_FILE" .${VIDEO_FILE##*.})
 
     # Crear carpeta para el video procesado
