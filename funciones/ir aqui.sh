@@ -20,6 +20,8 @@ create_source_whit commit
 create_source_whit reset_repo
 create_source_whit "mensajes motivacionales"
 
+create_source_whit "download_spotify"
+
 check_internet() {
   # Verificar la conexión a Internet
   ping -c 1 www.rev.earth > /dev/null 2>&1
