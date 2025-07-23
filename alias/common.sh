@@ -48,7 +48,12 @@ mia_funcion() {
 alias hard='git reset --hard'
 
 alias glog='git log --oneline'
-alias oneline='git log --oneline'
+alias oneline='git log --oneline  $(git merge-base main HEAD)..HEAD'
+
+getcherry() {
+    git log $(git merge-base HEAD main)..HEAD --format="%H" | sed '1!G;h;$!d' | xargs -I {} echo "git cherry-pick -x {}"
+}
+
 
 alias stash='git stash'
 alias pop='git stash pop'

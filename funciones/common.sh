@@ -35,9 +35,18 @@ template () {
 
 push() {
   if [ $# -eq 0 ]; then
-    git push -f
+    git push
   else
     git push -u oliver "$@"
+  fi
+}
+
+
+pushf() {
+  if [ $# -eq 0 ]; then
+    git push -f 
+  else
+    git push -u -f oliver "$@"
   fi
 }
 

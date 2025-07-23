@@ -25,5 +25,6 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 # Created by `pipx` on 2024-02-20 11:03:33
-# export PATH=$PATH:/Users/o.ramirezgarcia/.local/bin
-export PATH="$PATH:/Users/rev/.local/bin"
+
+# thalia path
+export PATH="$PATH:/Users/o.ramirezgarcia/.local/bin"

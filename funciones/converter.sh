@@ -1,36 +1,45 @@
 #!/bin/bash
 
-convertir_mkv_a_mp4() {
-    # Directorio donde se encuentran los archivos MKV
-    local DIRECTORIO="$1"
+convertir_a_mp3() {
+    carpeta_entrada="$PWD"
 
-    # Cambiar al directorio especificado
-    cd "$DIRECTORIO" || { echo "Directorio no encontrado"; return 1; }
+    if [ ! -d "$carpeta_entrada" ]; then
+        echo "La carpeta actual no existe o no se puede acceder."
+        return 1
+    fi
 
-    # Loop a través de todos los archivos .mkv en el directorio
-    for archivo in *.mkv; do
-        # Verifica si hay archivos .mkv en la carpeta
-        if [[ -f "$archivo" ]]; then
-            # Nombre del archivo sin la extensión
-            local base=$(basename "$archivo" .mkv)
-            
-            # Nombre del archivo de salida
-            local salida="${base}.mp4"
-            
-            # Convertir el archivo usando FFmpeg
-            ffmpeg -i "$archivo" -codec copy "$salida"
-            
-            # Verifica si la conversión fue exitosa
-            if [[ $? -eq 0 ]]; then
-                echo "Conversión exitosa: $archivo -> $salida"
-            else
-                echo "Error al convertir $archivo"
-            fi
-        else
-            echo "No se encontraron archivos MKV en el directorio."
+    for archivo_entrada in "$carpeta_entrada"/*; do
+        # Verificar que sea un archivo
+        if [ ! -f "$archivo_entrada" ]; then
+            continue
         fi
-    done
-}
 
-# Llamar a la función con el directorio como argumento
-# convertir_mkv_a_mp4 "/ruta/a/tu/carpeta"
+        # Detectar la extensión (en minúsculas)
+        extension="${archivo_entrada##*.}"
+        extension_lower=$(echo "$extension" | tr '[:upper:]' '[:lower:]')
+
+        # Saltar archivos que ya son mp3
+        if [ "$extension_lower" = "mp3" ]; then
+            continue
+        fi
+
+        # Nombre base sin extensión
+        nombre_base="${archivo_entrada##*/}"
+        nombre_base="${nombre_base%.*}"
+
+        carpeta_salida="$carpeta_entrada/$nombre_base"
+        mkdir -p "$carpeta_salida"
+
+        archivo_salida_mp3="$carpeta_salida/$nombre_base.mp3"
+
+        # Convertir a mp3 solo si el archivo tiene audio
+        ffmpeg -i "$archivo_entrada" -vn -acodec libmp3lame -q:a 2 "$archivo_salida_mp3"
+
+        # Mover el archivo original
+        mv "$archivo_entrada" "$carpeta_salida/"
+
+        echo "Convertido: $archivo_entrada → $archivo_salida_mp3"
+    done
+
+    echo "Todos los archivos fueron procesados."
+}

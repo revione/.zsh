@@ -14,24 +14,6 @@ create_source_whit common
 
 # alias raiz=./raiz
 
-
-# Python
-
-# Si hay un entorno virtual activo, utiliza sus versiones de python y pip
-if [ -n "$VIRTUAL_ENV" ]; then
-    # alias python="$VIRTUAL_ENV/bin/python3"
-    # alias pip="$VIRTUAL_ENV/bin/pip3"
-    alias python="$VIRTUAL_ENV/bin/python3.12"
-    alias pip="$VIRTUAL_ENV/bin/pip3.12"
-    alias p="python"
-else
-    # alias python=/usr/bin/python3
-    # alias pip=/usr/bin/pip3
-
-    alias python=/opt/homebrew/bin/python3.12
-    alias pip=/opt/homebrew/bin/pip3.12
-fi
-
 # ejecutable de python
 export PATH="/Users/rev/Library/Python/3.9/bin:$PATH"
 alias virtualenv=/Users/rev/Library/Python/3.9/bin/virtualenv
@@ -44,3 +26,8 @@ alias vscode='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/
 # code codium
 
 alias code='codium'
+
+aji() {
+  cd ~/dev/my-cron-node/
+  node ~/dev/my-cron-node/aji/aji.js aji
+}

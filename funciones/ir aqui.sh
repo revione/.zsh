@@ -22,6 +22,8 @@ create_source_whit "mensajes motivacionales"
 
 create_source_whit "download_spotify"
 
+create_source_whit thalia
+
 check_internet() {
   # Verificar la conexión a Internet
   ping -c 1 www.rev.earth > /dev/null 2>&1

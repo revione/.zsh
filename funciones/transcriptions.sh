@@ -54,3 +54,41 @@ transcribe_audio() {
 
 # Llamada a la función con el argumento proporcionado
 # transcribe_audio "$1"
+
+
+transcribe_audio() {
+  # Configurar el directorio de salida en el escritorio
+  OUTPUT_BASE_DIR="$HOME/Desktop/transcriptions"
+  mkdir -p "$OUTPUT_BASE_DIR"
+
+  # Nombre del archivo de audio con timestamp
+  AUDIO_FILE="audio_$(date +%Y%m%d_%H%M%S).wav"
+
+  echo "🎤 Grabando... Presiona Ctrl+C para detener la grabación."
+
+  # Iniciar la grabación con el comando corregido para macOS
+  ffmpeg -f avfoundation -i ":0" -ac 1 -ar 44100 -c:a pcm_s16le "$AUDIO_FILE"
+
+  # Verificar si el archivo de audio se creó correctamente
+  if [ ! -f "$AUDIO_FILE" ]; then
+    echo "❌ Error: No se pudo crear el archivo de audio."
+    return 1
+  fi
+
+  echo "✅ Grabación detenida. Archivo guardado como $AUDIO_FILE."
+
+  # Crear una carpeta específica para este audio dentro de "transcriptions"
+  AUDIO_NAME=$(basename "$AUDIO_FILE" .${AUDIO_FILE##*.})
+  OUTPUT_DIR="$OUTPUT_BASE_DIR/$AUDIO_NAME"
+  mkdir -p "$OUTPUT_DIR"
+
+  # Transcribir el audio utilizando whisper
+  echo "📝 Transcribiendo el audio..."
+  whisper "$AUDIO_FILE" --output_dir "$OUTPUT_DIR" 2>/dev/null
+
+  # Mover el archivo de audio original a la carpeta de salida
+  mv "$AUDIO_FILE" "$OUTPUT_DIR"
+
+  echo "✅ Transcripción completada para $AUDIO_FILE. Los archivos están en la carpeta $OUTPUT_DIR"
+}
+
